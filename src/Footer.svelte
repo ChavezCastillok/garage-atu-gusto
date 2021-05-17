@@ -1,29 +1,45 @@
 <script>
   import SocialMediaIcons from "./SocialMediaIcons.svelte";
 
-  let author = "Kevin Chavez";
+  let size = "small";
 </script>
 
-<footer class="footer is-flex-tablet is-justify-content-space-evenly">
-  <article>
-    <p>Ubicación:</p>
-    <p>
-      <ion-icon name="location-outline" />
-      Santa Teresa, San Cristobal, estado Tachira.
-    </p>
-    <p>Servicio de entrega (condicionado):</p>
-    <p>San Cristobal, Tariba y Palmira.</p>
-  </article>
-  <SocialMediaIcons size="large" />
-  <article>
-    <p>Autor:</p>
-    <p>
-      <a href="https://chavezcastillok.github.io">
+<footer class="footer">
+  <div class="columns">
+    <article class="column is-7">
+      <p class="tf">
+        <ion-icon name="location-outline" />
+        Ubicación para entrega:
+      </p>
+      <address>
+        Santa Teresa, carrera 2 a media cuadra de 3 esquinas frente al local
+        evangelico, San Cristobal, Tachira.
+      </address>
+      <p class="tf">Servicio de entrega a domicilio (condicionado):</p>
+      <p>San Cristobal, Tariba y Palmira.</p>
+    </article>
+    <article class="column">
+      <p class="tf">Contactar con:</p>
+      <p>
         <ion-icon name="person-circle-outline" />
-        {author}
-      </a>
-    </p>
-  </article>
+        Kevin Chavez
+        <a href="https://wa.me/584247556983" target="_blank">
+          <ion-icon name="logo-whatsapp" {size} />
+        </a>
+      </p>
+      <p>
+        <ion-icon name="person-circle-outline" />
+        Julio Chavez
+        <a href="https://wa.me/584247556983" target="_blank">
+          <ion-icon name="logo-whatsapp" {size} />
+        </a>
+      </p>
+      <br />
+      <p>
+        Garage a tu Gusto en: <SocialMediaIcons size="large" />
+      </p>
+    </article>
+  </div>
 </footer>
 
 <style>
@@ -35,6 +51,10 @@
   }
   .footer {
     background-color: #7f9ddece;
+  }
+  .tf {
+    font-weight: bold;
+    font-size: 1.1rem;
   }
   @media screen and (max-width: 768px) {
     .footer article:first-child {

@@ -10,9 +10,6 @@
   <a href="https://m.me/garageatugusto" target="_blank">
     <ion-icon name="chatbubble-ellipses-outline" {size} />
   </a>
-  <a href="https://wa.me/584247556983" target="_blank">
-    <ion-icon name="logo-whatsapp" {size} />
-  </a>
 </article>
 
 <style>

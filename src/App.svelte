@@ -107,8 +107,7 @@
                 class="dropdown-item"
                 id="list_repuestos"
                 on:click={activeModalRepuestos}
-              >
-                Repuestos
+                >Repuestos
               </a>
               <a
                 class="dropdown-item"
@@ -121,8 +120,7 @@
                 class="dropdown-item"
                 id="house-products"
                 on:click={activeModalHogar}
-              >
-                Hogar
+                >Hogar
               </a>
               <a
                 class="dropdown-item"
@@ -161,7 +159,7 @@
   <section>
     <!-- Respuestos para vehiculo -->
     <ModalProducts
-      title="Lista de Repuestos para el vehiculo"
+      title="Repuestos para el vehiculo"
       products={$products.filter((p) => {
         return p.tags[0] == "repuesto-car";
       })}
@@ -171,7 +169,7 @@
     <ModalBooks books={$books} bind:activemodal={modalBooks} />
     <!-- house products -->
     <ModalProducts
-      title="Lista de Productos para el hogar"
+      title="Productos para el hogar"
       products={$products.filter((p) => {
         return p.tags[0] == "hogar";
       })}
@@ -209,6 +207,10 @@
         Explora todos los productos y servicios que tenemos disponibles para ti
         y no dudes en contactarnos si requieres más información.
       </p>
+      <p>
+        Los precios publicados son al detal, para precios al mayor consultar
+        directamente.
+      </p>
     {/if}
   </section>
 
@@ -218,13 +220,7 @@
       <div class="column is-8 is-9-desktop">
         <header>
           <h1 class="title">Productos destacados</h1>
-          <p>
-            De nuestro
-            <a href="catalogo.html"><em>Catalago de productos en venta,</em></a>
-            Su sitio favorito para compras en linea. Ubicados en San Cristobal, Estado
-            Tachira. Ofrecemos servicio de entrega a domicilio en la ciudad, también
-            Tariba y Palmira.
-          </p>
+          <h2 class="subtitle">Al mayor y detal.</h2>
         </header>
         <div class="columns is-multiline is-mobile">
           <div class="column  is-half-tablet is-one-third-desktop">
@@ -253,9 +249,6 @@
                 description="Bombillo de excelente iluminacion LED y bajo consumo de 9, 12 y 15W, al mayor y detal"
               />
             </article>
-            <article class="block">
-              <Cardy />
-            </article>
           </div>
           <div class="column is-half-tablet is-one-third-desktop">
             <article class="block">
@@ -264,10 +257,6 @@
                 img_src="img/destacados/kit-licuadora.png"
                 description="Kit de repuestos para licuadoras marca Oster, cuadrante, base, acople, vaso, cuchilla, entre otros."
               />
-            </article>
-
-            <article class="block">
-              <Cardy />
             </article>
           </div>
         </div>
@@ -310,11 +299,6 @@
     font-family: "Comfortaa";
     color: ghostwhite;
     text-align: center;
-  }
-
-  a > em {
-    text-shadow: 1px 1px #3298dc;
-    color: yellow;
   }
 
   .title,

@@ -17,19 +17,19 @@
           </caption>
           <thead>
             <tr>
-              <th>Cant</th>
+              <th>#</th>
               <th>Descripción</th>
               <th>Condición</th>
               <th>Precio COP</th>
             </tr>
           </thead>
           <tbody id="list-repuestos">
-            {#each products as product}
+            {#each products as product, index}
               <tr>
-                <td>{product.cant}</td>
+                <td>{index + 1}</td>
                 <td>{product.name}</td>
                 <td>{product.state}</td>
-                <td>{product.price}</td>
+                <td class="num">{product.price}</td>
               </tr>
             {/each}
           </tbody>
@@ -61,5 +61,13 @@
   .modal-content .section .title {
     color: #7f9dde;
     text-shadow: 1px 1px yellow;
+  }
+
+  .num {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: darkgreen;
+    font-family: "Linux Biolinum G" !important;
+    text-align: right;
   }
 </style>

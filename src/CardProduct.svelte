@@ -21,6 +21,7 @@
     </div>
   </div>
   <div class="column is-full">
+    <p>{product.description}</p>
     {#each product.tags as tag}
       {#if product.tags[0] == "hogar"}
         <span class="tag is-link is-light m-1">{tag}</span>
@@ -48,7 +49,7 @@
     text-shadow: none;
   }
 
-  .content p {
+  p {
     color: #7f9dde;
   }
 

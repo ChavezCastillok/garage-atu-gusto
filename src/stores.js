@@ -42,12 +42,39 @@ class book {
 
 let listProducts = [
   new Product(
-    "Plantas de sabila (Aloe Vera)",
+    "Plantas de sabila (Aloe Vera) sueltas",
     10000,
     "nuevo",
     20,
     "Plantas y pencas de sabila, pequeñas medianas y grandes",
     ["huerto", "sabila"],
+    ""
+  ),
+  new Product(
+    "Plantas de lirios (rojos) sueltas",
+    8000,
+    "nuevo",
+    20,
+    "Plantas y semillas de lirios rojos y rojos con blanco",
+    ["huerto", "sabila"],
+    ""
+  ),
+  new Product(
+    "Planta de Jade en matero",
+    15000,
+    "nuevo",
+    9,
+    "Arbol o planta Jade en matero",
+    ["huerto", "jade"],
+    ""
+  ),
+  new Product(
+    "Prendas de bisuteria",
+    3000,
+    "nuevo",
+    19,
+    "Disponibles collares, zarcillos y pulseras de bisuteria a precios super baratos",
+    ["hogar", "prendas", "bisuteria"],
     ""
   ),
   new Product(
@@ -57,15 +84,6 @@ let listProducts = [
     20,
     "Semillas de lirios rojos puros y rojo con blanco.",
     ["huerto", "lirios", "jardin", "flores"],
-    ""
-  ),
-  new Product(
-    "Planta de flor de media noche",
-    10000,
-    "nuevo",
-    8,
-    "Planta de flor de media noche listas para plantar.",
-    ["huerto", "jardin", "flores"],
     ""
   ),
   new Product(
@@ -85,15 +103,6 @@ let listProducts = [
     8,
     "Bombillo LED de bajo consumo C&M",
     ["hogar", "bombillo"],
-    ""
-  ),
-  new Product(
-    "Rolinera rodamiento Aveo 1.6",
-    18000,
-    "nuevo",
-    1,
-    "",
-    ["repuesto-car", "chevrolet"],
     ""
   ),
   new Product(
@@ -359,7 +368,7 @@ let listProducts = [
   ),
   new Product(
     "Resistencia de cocina electrica",
-    13000,
+    10000,
     "nuevo",
     8,
     "",

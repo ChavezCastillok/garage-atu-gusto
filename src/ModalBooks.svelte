@@ -10,7 +10,7 @@
     <div class="modal-background" on:click={closeModal} />
     <div class="modal-content">
       <section class="content section has-background-white ">
-        <h1>Lista de libros disponibles</h1>
+        <h1>Libros disponibles</h1>
         <table class="table is-hoverable">
           <thead>
             <tr>
@@ -30,7 +30,7 @@
                 {:else}
                   <td>...</td>
                 {/if}
-                <td>{book.price}</td>
+                <td class="num">{book.price}</td>
               </tr>
             {/each}
           </tbody>
@@ -63,5 +63,13 @@
   table {
     text-align: left;
     color: black;
+  }
+
+  .num {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: darkslateblue;
+    font-family: "Linux Biolinum G" !important;
+    text-align: right;
   }
 </style>
