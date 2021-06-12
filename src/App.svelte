@@ -1,12 +1,11 @@
 <script>
-  import { books, products } from "./stores.js";
+  import { products } from "./stores.js";
 
   import Cardy from "./Cardy.svelte";
   import CardProduct from "./CardProduct.svelte";
   import Footer from "./Footer.svelte";
   import ModalContent from "./ModalContent.svelte";
   import ModalProducts from "./ModalProducts.svelte";
-  import ModalBooks from "./ModalBooks.svelte";
   import SocialMediaIcons from "./SocialMediaIcons.svelte";
 
   let inputSearch = "";
@@ -38,7 +37,6 @@
   let modalHogar = false;
   let modalRepuestos = false;
   let modalHuerto = false;
-  let modalBooks = false;
   let modalMore = false;
 
   let modalMoreContent = `
@@ -66,7 +64,6 @@
   const activeModalHogar = () => (modalHogar = true);
   const activeModalRepuestos = () => (modalRepuestos = true);
   const activemodalHuerto = () => (modalHuerto = true);
-  const activeModalBooks = () => (modalBooks = true);
   const activeModalMore = () => (modalMore = true);
 </script>
 
@@ -107,20 +104,13 @@
                 class="dropdown-item"
                 id="list_repuestos"
                 on:click={activeModalRepuestos}
-                >Repuestos
-              </a>
-              <a
-                class="dropdown-item"
-                id="list_books"
-                on:click={activeModalBooks}
-              >
-                Libros
+                >Car Repuestos
               </a>
               <a
                 class="dropdown-item"
                 id="house-products"
                 on:click={activeModalHogar}
-                >Hogar
+                >Del Hogar
               </a>
               <a
                 class="dropdown-item"
@@ -165,8 +155,6 @@
       })}
       bind:activemodal={modalRepuestos}
     />
-    <!-- books list -->
-    <ModalBooks books={$books} bind:activemodal={modalBooks} />
     <!-- house products -->
     <ModalProducts
       title="Productos para el hogar"
@@ -228,8 +216,8 @@
               <Cardy
                 title="Resistencia Electrica"
                 img_src="img/destacados/rce-gatg.png"
-                description="Resistencia, hornilla de cocina electrica de 1000W 110v, al mayor
-            y detal."
+                description="Resistencia, hornilla de cocina electrica de 1000W 110v"
+                tags={["mayor", "detal"]}
               />
             </article>
             <article class="block">
@@ -246,7 +234,8 @@
               <Cardy
                 title="Bombillos LED"
                 img_src="img/destacados/bombillo.png"
-                description="Bombillo de excelente iluminacion LED y bajo consumo de 9, 12 y 15W, al mayor y detal"
+                description="Bombillo de excelente iluminacion LED y bajo consumo de 9, 12, 15, 18 y 21W."
+                tags={["mayor", "detal"]}
               />
             </article>
           </div>
@@ -256,6 +245,7 @@
                 title="Repuestos para licuadoras Oster"
                 img_src="img/destacados/kit-licuadora.png"
                 description="Kit de repuestos para licuadoras marca Oster, cuadrante, base, acople, vaso, cuchilla, entre otros."
+                tags={["mayor", "detal"]}
               />
             </article>
           </div>

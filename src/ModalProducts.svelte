@@ -36,7 +36,7 @@
           <tfoot>
             <tr>
               <td colspan="4">
-                Si te interesa alguno(s) de estos productos escribenos.
+                Si te interesa alguno(s) de estos productos contactenos.
                 <a href="https://wa.me/584247556983" target="_blank">
                   <ion-icon name="logo-whatsapp" size="large" />
                 </a>

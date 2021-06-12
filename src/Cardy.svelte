@@ -2,6 +2,7 @@
   export let title = "Default product";
   export let img_src = "img/Garage a tu Gusto.png";
   export let description = "Default description";
+  export let tags = [];
 </script>
 
 <div class="card">
@@ -17,6 +18,11 @@
   <div class="card-content">
     <p>
       {@html description}
+    </p>
+    <p>
+      {#each tags as tag}
+        <span class="tag is-info mr-1">{tag}</span>
+      {/each}
     </p>
   </div>
 </div>
