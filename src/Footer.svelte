@@ -5,11 +5,11 @@
 </script>
 
 <footer class="footer">
-  <div class="columns">
+  <div class="columns is-multiline">
     <article class="column is-7">
       <p class="tf">
         <ion-icon name="location-outline" />
-        Ubicación para entrega:
+        Ubicación para entrega (No tenemos local fisico):
       </p>
       <address>
         Santa Teresa, carrera 2 a media cuadra de 3 esquinas frente al local
@@ -22,13 +22,6 @@
       <p class="tf">Contactar con:</p>
       <p>
         <ion-icon name="person-circle-outline" />
-        Kevin Chavez
-        <a href="https://wa.me/584247556983" target="_blank">
-          <ion-icon name="logo-whatsapp" {size} />
-        </a>
-      </p>
-      <p>
-        <ion-icon name="person-circle-outline" />
         Julio Chavez
         <a href="https://wa.me/584247556983" target="_blank">
           <ion-icon name="logo-whatsapp" {size} />
@@ -37,6 +30,17 @@
       <br />
       <p>
         Garage a tu Gusto en: <SocialMediaIcons size="large" />
+      </p>
+    </article>
+    <article class="column is-full">
+      <p>
+        <span class="icon">
+          <ion-icon name="code-slash-outline" />
+        </span>
+        Dev:
+        <a href="https://chavezcastillok.github.io/"
+          ><small>@chavezcastillok</small>
+        </a>
       </p>
     </article>
   </div>
