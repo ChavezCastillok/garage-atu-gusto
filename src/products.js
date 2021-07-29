@@ -25,7 +25,110 @@ class Product {
   }
 }
 
-export const listProducts = [
+const otherProducts = [
+  new Product(
+    "Bombillo LED 12W C&M",
+    4000,
+    "nuevo",
+    8,
+    "Bombillo LED de bajo consumo C&M",
+    ["hogar", "bombillo"],
+    ""
+  ),
+  new Product(
+    "Bombillo LED 15W C&M",
+    4500,
+    "nuevo",
+    8,
+    "Bombillo LED de bajo consumo C&M",
+    ["hogar", "bombillo"],
+    ""
+  ),
+  new Product(
+    "Termostato de cocina electrica 220V 10A",
+    10000,
+    "nuevo",
+    7,
+    "termostato regulador de cocina electrica.",
+    ["hogar", "cocina"],
+    ""
+  ),
+
+  new Product(
+    "Juego de cubiertos",
+    70000,
+    "nuevo",
+    1,
+    "",
+    ["hogar", "cocina"],
+    "var/hogar/cubiertos.jpg"
+  ),
+  new Product(
+    "Cuchillo electrico",
+    35000,
+    "nuevo",
+    1,
+    "",
+    ["hogar", "cocina"],
+    "../var/hogar/cuchillo.jpg"
+  ),
+  new Product(
+    "Plancha a vapor",
+    50000,
+    "nuevo",
+    1,
+    "",
+    ["hogar"],
+    "var/hogar/plancha.jpg"
+  ),
+  new Product(
+    "Tostadora Sandwichera",
+    50000,
+    "nuevo",
+    1,
+    "",
+    ["hogar", "cocina"],
+    "var/hogar/tostadora.jpg"
+  ),
+  new Product(
+    "Juego de 4 copas",
+    50000,
+    "nuevo",
+    2,
+    "",
+    ["hogar"],
+    "var/hogar/copas.jpg"
+  ),
+  new Product(
+    "Bateria de ollas Magefesa (10 piezas)",
+    980000,
+    "nuevo",
+    1,
+    "",
+    ["hogar", "cocina"],
+    "var/hogar/ollas-magefesa.png"
+  ),
+  new Product(
+    "Resistencia de cocina electrica 1000W 110v",
+    10000,
+    "nuevo",
+    8,
+    "Resistencia (hornilla) de cocina electrica 1000W 110V, tambien disponible al mayor.",
+    ["hogar", "cocina"],
+    "../media/destacados/rce-gatg.png"
+  ),
+  new Product(
+    "Balanza electronica de cocina",
+    17000,
+    "nuevo",
+    8,
+    "Capacidad maxima 7kg",
+    ["hogar", "cocina"],
+    "../media/destacados/balanza.png"
+  ),
+];
+
+const plantasHuerto = [
   new Product(
     "Plantas de sabila (Aloe Vera) sueltas",
     10000,
@@ -62,25 +165,9 @@ export const listProducts = [
     ["huerto", "lirios", "jardin", "flores"],
     ""
   ),
-  new Product(
-    "Bombillo LED 12W C&M",
-    4000,
-    "nuevo",
-    8,
-    "Bombillo LED de bajo consumo C&M",
-    ["hogar", "bombillo"],
-    ""
-  ),
-  ,
-  new Product(
-    "Bombillo LED 15W C&M",
-    4500,
-    "nuevo",
-    8,
-    "Bombillo LED de bajo consumo C&M",
-    ["hogar", "bombillo"],
-    ""
-  ),
+];
+
+const repuestosCar = [
   new Product(
     "Retrovisor derecho aveo 2004-2010",
     53000,
@@ -288,76 +375,10 @@ export const listProducts = [
     ["repuesto-car", "Ford"],
     ""
   ),
-  new Product(
-    "Juego de cubiertos",
-    70000,
-    "nuevo",
-    1,
-    "",
-    ["hogar", "cocina"],
-    "var/hogar/cubiertos.jpg"
-  ),
-  new Product(
-    "Cuchillo electrico",
-    35000,
-    "nuevo",
-    1,
-    "",
-    ["hogar", "cocina"],
-    "../var/hogar/cuchillo.jpg"
-  ),
-  new Product(
-    "Plancha a vapor",
-    50000,
-    "nuevo",
-    1,
-    "",
-    ["hogar"],
-    "var/hogar/plancha.jpg"
-  ),
-  new Product(
-    "Tostadora Sandwichera",
-    50000,
-    "nuevo",
-    1,
-    "",
-    ["hogar", "cocina"],
-    "var/hogar/tostadora.jpg"
-  ),
-  new Product(
-    "Juego de 4 copas",
-    50000,
-    "nuevo",
-    2,
-    "",
-    ["hogar"],
-    "var/hogar/copas.jpg"
-  ),
-  new Product(
-    "Bateria de ollas Magefesa (10 piezas)",
-    980000,
-    "nuevo",
-    1,
-    "",
-    ["hogar", "cocina"],
-    "var/hogar/ollas-magefesa.png"
-  ),
-  new Product(
-    "Resistencia de cocina electrica",
-    10000,
-    "nuevo",
-    8,
-    "",
-    ["hogar", "cocina"],
-    "../media/destacados/rce-gatg.png"
-  ),
-  new Product(
-    "Balanza electronica de cocina",
-    17000,
-    "nuevo",
-    8,
-    "Capacidad maxima 7kg",
-    ["hogar", "cocina"],
-    "../media/destacados/balanza.png"
-  ),
+];
+
+export const listProducts = [
+  ...otherProducts,
+  ...plantasHuerto,
+  ...repuestosCar,
 ];

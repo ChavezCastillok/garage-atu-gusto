@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from "svelte";
   import { products } from "./stores.js";
 
   import Cardy from "./Cardy.svelte";
@@ -7,6 +8,8 @@
   import ModalContent from "./ModalContent.svelte";
   import ModalProducts from "./ModalProducts.svelte";
   import SocialMediaIcons from "./SocialMediaIcons.svelte";
+
+  let exchangeRateBCV;
 
   let inputSearch = "";
   let search_results = [];
@@ -39,22 +42,26 @@
   let modalHuerto = false;
   let modalMore = false;
 
+  const gatg_on_fb = "https://fb.me/garageatugusto";
+  const gatg_on_wa = "https://wa.me/584247556983";
+  const logo_src = "img/gatg.png";
+
   let modalMoreContent = `
   <div class="columns is-mobile">
   <div class="column is-one-third">
     <figure class="image is-128x128">
-      <img src="img/gatg.png" alt="logo-garageatugusto" />
+      <img src="${logo_src}" alt="logo-garageatugusto" />
     </figure>
   </div>
   <div class="column has-text-left">
     <h1>Contactanos</h1>
     <p>
       Nos puedes encontrar en Facebook como
-      <a href="https://fb.me/garageatugusto">Garage a tu Gusto</a>
+      <a href="${gatg_on_fb}">Garage a tu Gusto</a>
     </p>
     <p>
       O escribenos directamente via
-      <a href="https://wa.me/584247556983">Whatsapp</a>
+      <a href="${gatg_on_wa}">Whatsapp</a>
     </p>
     <SocialMediaIcons size="large" />
   </div>
@@ -65,6 +72,19 @@
   const activeModalRepuestos = () => (modalRepuestos = true);
   const activemodalHuerto = () => (modalHuerto = true);
   const activeModalMore = () => (modalMore = true);
+
+  async function dolarBCV() {
+    await fetch("https://api-divisas-ve.herokuapp.com/v1/")
+      .then((res) => res.json())
+      .then((json) => {
+        exchangeRateBCV = parseFloat(json.data.dollar.value);
+      })
+      .catch((error) => console.log(error));
+  }
+
+  onMount(() => {
+    dolarBCV();
+  });
 </script>
 
 <main class="container">
@@ -110,14 +130,14 @@
                 class="dropdown-item"
                 id="house-products"
                 on:click={activeModalHogar}
-                >Del Hogar
+                >Para el Hogar
               </a>
               <a
                 class="dropdown-item"
                 id="other-products"
                 on:click={activemodalHuerto}
               >
-                Del huerto
+                Para el huerto
               </a>
               <hr class="dropdown-divider" />
               <a class="dropdown-item" id="more" on:click={activeModalMore}>
@@ -187,7 +207,7 @@
       </div>
       {#each search_results as product}
         <div class="column is-flex is-justify-content-center m-1">
-          <CardProduct {product} />
+          <CardProduct {product} {exchangeRateBCV} />
         </div>
       {/each}
     {:else}
@@ -210,13 +230,13 @@
           <h1 class="title">Productos destacados</h1>
           <h2 class="subtitle">Al mayor y detal.</h2>
         </header>
-        <div class="columns is-multiline is-mobile">
-          <div class="column  is-half-tablet is-one-third-desktop">
+        <div class="columns is-multiline">
+          <div class="column is-half-tablet is-one-third-desktop">
             <article class="block">
               <Cardy
                 title="Resistencia Electrica"
                 img_src="img/destacados/rce-gatg.png"
-                description="Resistencia, hornilla de cocina electrica de 1000W 110v"
+                description="Resistencia, hornilla de cocina electrica de 1000W 110v, tambien el termostato regulador."
                 tags={["mayor", "detal"]}
               />
             </article>
@@ -234,7 +254,7 @@
               <Cardy
                 title="Bombillos LED"
                 img_src="img/destacados/bombillo.png"
-                description="Bombillo de excelente iluminacion LED y bajo consumo de 9, 12, 15, 18 y 21W."
+                description="Bombillos LED de excelente iluminacion y bajo consumo de 5, 9, 12, 15, 18, 21, 30, 40W. Y más, tambien recargables."
                 tags={["mayor", "detal"]}
               />
             </article>
@@ -252,7 +272,7 @@
         </div>
       </div>
       <!-- area servicios -->
-      <div class="column  is-4 is-3-desktop">
+      <aside class="column  is-4 is-3-desktop">
         <header>
           <h1 class="title">Servicios locales</h1>
         </header>
@@ -278,7 +298,7 @@
             </article>
           </div>
         </div>
-      </div>
+      </aside>
     </div>
   </section>
   <Footer />
@@ -289,6 +309,11 @@
     font-family: "Comfortaa";
     color: ghostwhite;
     text-align: center;
+  }
+
+  img {
+    border-radius: 50%;
+    box-shadow: -5px -5px 10px 5px skyblue;
   }
 
   .title,

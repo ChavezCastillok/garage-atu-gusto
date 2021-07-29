@@ -9,7 +9,7 @@
     <article class="column is-7">
       <p class="tf">
         <ion-icon name="location-outline" />
-        Ubicación para entrega (No tenemos local fisico):
+        Ubicación para entrega (No local [aún]):
       </p>
       <address>
         Santa Teresa, carrera 2 a media cuadra de 3 esquinas frente al local
@@ -47,14 +47,15 @@
 </footer>
 
 <style>
+  footer {
+    border-radius: 0.3rem;
+    background-color: #7f9ddece;
+  }
   a {
     color: gold;
   }
   ion-icon {
     color: ghostwhite;
-  }
-  .footer {
-    background-color: #7f9ddece;
   }
   .tf {
     font-weight: bold;

@@ -1,25 +1,37 @@
 <script>
-  export let product;
+  export let product, exchangeRateBCV;
+  let fullDateTime = new Date();
+  let today = `${fullDateTime.getDate()}/${
+    fullDateTime.getMonth() + 1
+  }/${fullDateTime.getFullYear()}`;
+  let exchangeRateVEStoCOP =
+    3500 / (isNaN(exchangeRateBCV) ? 0 : exchangeRateBCV);
 </script>
 
-<div class="columns is-mobile is-multiline bg-ghost">
+<article class="columns is-mobile is-multiline bg-ghost">
   <div class="column">
     <figure class="image is-1by1">
       <img src="img/gatg-dp11.png" alt="product-img" />
     </figure>
   </div>
-  <div class="column ">
+  <section class="column">
     <header>
       <h2 class="title is-5">{product.name}</h2>
     </header>
     <div class="content">
       <p>{product.state}, {product.cant} disponible(s).</p>
-      <p class="box">
-        $ {product.price} COP*
+      <p
+        class="box"
+        title="{today} Bs.{(
+          (product.price / exchangeRateVEStoCOP) *
+          1.16
+        ).toFixed(2)}"
+      >
+        $ <span class="num">{product.price}</span> COP*
       </p>
       <span class="help is-info">*Precio por unidad.</span>
     </div>
-  </div>
+  </section>
   <div class="column is-full">
     <p>{product.description}</p>
     {#each product.tags as tag}
@@ -34,7 +46,7 @@
       {/if}
     {/each}
   </div>
-</div>
+</article>
 
 <style>
   .columns {
@@ -57,5 +69,9 @@
     font-family: "Linux Biolinum G";
     color: darkblue;
     font-size: 1.2rem;
+  }
+
+  .num {
+    font-family: "Linux Biolinum G", "Linux Biolinum";
   }
 </style>
