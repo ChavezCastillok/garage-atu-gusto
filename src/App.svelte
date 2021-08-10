@@ -3,11 +3,12 @@
   import { products } from "./stores.js";
 
   import Cardy from "./Cardy.svelte";
-  import CardProduct from "./CardProduct.svelte";
+  import CardProductX from "./CardProductX.svelte";
   import Footer from "./Footer.svelte";
   import ModalContent from "./ModalContent.svelte";
   import ModalProducts from "./ModalProducts.svelte";
   import SocialMediaIcons from "./SocialMediaIcons.svelte";
+  import DinamicProduct from "./DinamicProduct.svelte";
 
   let exchangeRateBCV;
 
@@ -174,6 +175,7 @@
         return p.tags[0] == "repuesto-car";
       })}
       bind:activemodal={modalRepuestos}
+      {exchangeRateBCV}
     />
     <!-- house products -->
     <ModalProducts
@@ -182,6 +184,7 @@
         return p.tags[0] == "hogar";
       })}
       bind:activemodal={modalHogar}
+      {exchangeRateBCV}
     />
     <!-- huerto products -->
     <ModalProducts
@@ -190,6 +193,7 @@
       products={$products.filter((p) => {
         return p.tags[0] == "huerto";
       })}
+      {exchangeRateBCV}
     />
 
     <ModalContent bind:activemodal={modalMore} HTMLcontent={modalMoreContent} />
@@ -207,7 +211,7 @@
       </div>
       {#each search_results as product}
         <div class="column is-flex is-justify-content-center m-1">
-          <CardProduct {product} {exchangeRateBCV} />
+          <CardProductX {product} {exchangeRateBCV} />
         </div>
       {/each}
     {:else}
@@ -227,9 +231,32 @@
       <!-- area destacados -->
       <div class="column is-8 is-9-desktop">
         <header>
-          <h1 class="title">Productos destacados</h1>
+          <h1 class=" title">Nuestros productos</h1>
           <h2 class="subtitle">Al mayor y detal.</h2>
         </header>
+
+        <section class="section">
+          <div class="columns is-multiline">
+            <article class="column">
+              <DinamicProduct
+                listProducts={$products.filter(
+                  (p) => p.tags[0] == "hogar" || p.tags[0] == "huerto"
+                )}
+                interval_seg="5"
+              />
+            </article>
+            <article class="column">
+              <DinamicProduct
+                listProducts={$products.filter(
+                  (p) => p.tags[0] == "repuesto-car"
+                )}
+                interval_seg="4.5"
+              />
+            </article>
+          </div>
+        </section>
+        <h1 class="title">Productos destacados</h1>
+
         <div class="columns is-multiline">
           <div class="column is-half-tablet is-one-third-desktop">
             <article class="block">
@@ -238,14 +265,6 @@
                 img_src="img/destacados/rce-gatg.png"
                 description="Resistencia, hornilla de cocina electrica de 1000W 110v, tambien el termostato regulador."
                 tags={["mayor", "detal"]}
-              />
-            </article>
-            <article class="block">
-              <Cardy
-                title="Balanza digital"
-                img_src="img/destacados/balanza.png"
-                description="Balanza digital de cocina con capacidad hasta 7kg, especial
-              para reposteria, hogar."
               />
             </article>
           </div>
@@ -271,6 +290,7 @@
           </div>
         </div>
       </div>
+
       <!-- area servicios -->
       <aside class="column  is-4 is-3-desktop">
         <header>
@@ -301,6 +321,7 @@
       </aside>
     </div>
   </section>
+
   <Footer />
 </main>
 
@@ -313,7 +334,7 @@
 
   img {
     border-radius: 50%;
-    box-shadow: -5px -5px 10px 5px skyblue;
+    box-shadow: 0px 0px 10px 5px skyblue;
   }
 
   .title,

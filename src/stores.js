@@ -1,4 +1,4 @@
 import { writable } from "svelte/store";
-import { listProducts } from "./products.js";
+import { listProducts } from "./products";
 
 export const products = writable(listProducts);

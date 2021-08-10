@@ -1,5 +1,9 @@
 <script>
+  import ModalProduct from "./ModalProduct.svelte";
+
   export let product, exchangeRateBCV;
+  let activemodal = false;
+
   let fullDateTime = new Date();
   let today = `${fullDateTime.getDate()}/${
     fullDateTime.getMonth() + 1
@@ -8,18 +12,36 @@
     3500 / (isNaN(exchangeRateBCV) ? 0 : exchangeRateBCV);
 </script>
 
-<article class="columns is-mobile is-multiline bg-ghost">
+<ModalProduct {product} {activemodal} imgSRC={product.photo} />
+<article
+  class="columns is-mobile is-multiline bg-ghost"
+  on:click={() => (activemodal = true)}
+>
   <div class="column">
     <figure class="image is-1by1">
-      <img src="img/gatg-dp11.png" alt="product-img" />
+      <img
+        src={product.photo != "" ? product.photo : "./img/gatg-dp11.png"}
+        alt="product-img"
+      />
     </figure>
   </div>
   <section class="column">
     <header>
-      <h2 class="title is-5">{product.name}</h2>
+      <h2 class="title is-5 mb-1">{product.name}</h2>
     </header>
     <div class="content">
-      <p>{product.state}, {product.cant} disponible(s).</p>
+      {#if product.available}
+        <p>
+          <span
+            class="tag is-light {product.state == 'nuevo'
+              ? 'is-success'
+              : 'is-warning'}">{product.state}</span
+          >
+          <span class="tag is-success">Disponible</span>
+        </p>
+      {:else}
+        <p><span class="tag is-warning">No disponible</span></p>
+      {/if}
       <p
         class="box"
         title="{today} Bs.{(

@@ -1,7 +1,17 @@
 <script>
+  import ModalProduct from "./ModalProduct.svelte";
+
   export let title;
   export let activemodal;
   export let products;
+  export let exchangeRateBCV;
+
+  let fullDateTime = new Date();
+  let today = `${fullDateTime.getDate()}/${
+    fullDateTime.getMonth() + 1
+  }/${fullDateTime.getFullYear()}`;
+  let exchangeRateVEStoCOP =
+    3500 / (isNaN(exchangeRateBCV) ? 0 : exchangeRateBCV);
 
   const closeModal = () => (activemodal = false);
 </script>
@@ -29,7 +39,15 @@
                 <td>{index + 1}</td>
                 <td>{product.name}</td>
                 <td>{product.state}</td>
-                <td class="num">{product.price}</td>
+                <td
+                  class="num"
+                  title="{today} Bs.{(
+                    (product.price / exchangeRateVEStoCOP) *
+                    1.16
+                  ).toFixed(2)}"
+                >
+                  {product.price}
+                </td>
               </tr>
             {/each}
           </tbody>
