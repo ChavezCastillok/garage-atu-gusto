@@ -1,49 +1,48 @@
 <script>
-  import SocialMediaIcons from "./SocialMediaIcons.svelte";
-
   let size = "small";
 </script>
 
 <footer class="footer">
-  <div class="columns is-multiline">
-    <article class="column is-7">
-      <p class="tf">
-        <ion-icon name="location-outline" />
-        Ubicación para entrega (No local [aún]):
-      </p>
-      <address>
-        Santa Teresa, carrera 2 a media cuadra de 3 esquinas frente al local
-        evangelico, San Cristobal, Tachira.
-      </address>
-      <p class="tf">Servicio de entrega a domicilio (condicionado):</p>
-      <p>San Cristobal, Tariba y Palmira.</p>
-    </article>
-    <article class="column">
-      <p class="tf">Contactar con:</p>
-      <p>
-        <ion-icon name="person-circle-outline" />
-        Julio Chavez
-        <a href="https://wa.me/584247556983" target="_blank">
-          <ion-icon name="logo-whatsapp" {size} />
-        </a>
-      </p>
-      <br />
-      <p>
-        Garage a tu Gusto en: <SocialMediaIcons size="large" />
-      </p>
-    </article>
-    <article class="column is-full">
-      <p>
+  <article class="content has-text-centered">
+    <p>
+      <span class="icon-text">
+        <span class="icon">
+          <ion-icon name="location-outline" size="large" />
+        </span>
+        <span>Santa Teresa, San Cristobal, Táchira.</span>
+      </span>
+      <a href="tel:+584141755444">
+        <span class="icon-text">
+          <span class="icon">
+            <ion-icon name="call-outline" />
+          </span>
+          <span>+58 414 175 54 44</span>
+        </span>
+      </a>
+      <a href="https://wa.me/584141755444" target="_blank">
+        <span class="icon-text">
+          <span class="icon">
+            <ion-icon name="logo-whatsapp" {size} />
+          </span>
+          <span>Julio Chavez</span>
+        </span>
+      </a>
+    </p>
+    <hr />
+    <p>
+      <span class="icon-text">
         <span class="icon">
           <ion-icon name="code-slash-outline" />
         </span>
-        Dev:
-        <a href="https://chavezcastillok.github.io/"
-          ><small>@chavezcastillok</small>
-        </a>
-      </p>
-    </article>
-  </div>
+        <span>
+          Dev:
+          <a href="https://chavezcastillok.github.io/" target="_blank">
+            <small>@chavezcastillok</small>
+          </a>
+        </span>
+      </span>
+    </p>
+  </article>
 </footer>
 
 <style>
@@ -56,10 +55,6 @@
   }
   ion-icon {
     color: ghostwhite;
-  }
-  .tf {
-    font-weight: bold;
-    font-size: 1.1rem;
   }
   @media screen and (max-width: 768px) {
     .footer article:first-child {

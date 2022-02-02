@@ -30,7 +30,7 @@ export const listProducts = [
   },
   {
     name: "Bombillos LED C&M",
-    price: 2021,
+    price: 0,
     state: "nuevo",
     available: true,
     description: "Bombillos LED de bajo consumo C&M, 110V, de 7, 21W",
@@ -39,7 +39,7 @@ export const listProducts = [
   },
   {
     name: "Bombillos LED CM",
-    price: 2021,
+    price: 0,
     state: "nuevo",
     available: true,
     description:

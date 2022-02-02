@@ -44,7 +44,7 @@
   let modalMore = false;
 
   const gatg_on_fb = "https://fb.me/garageatugusto";
-  const gatg_on_wa = "https://wa.me/584247556983";
+  const gatg_on_wa = "https://wa.me/584141755444";
   const logo_src = "img/gatg.png";
 
   let modalMoreContent = `
@@ -167,14 +167,14 @@
     </div>
   </div>
   <!-- modales -->
-  <section>
+  <div>
     <!-- Respuestos para vehiculo -->
     <ModalProducts
       title="Repuestos para el vehiculo"
       products={$products.filter((p) => {
         return p.tags[0] == "repuesto-car";
       })}
-      bind:activemodal={modalRepuestos}
+      bind:activeModal={modalRepuestos}
       {exchangeRateBCV}
     />
     <!-- house products -->
@@ -183,12 +183,12 @@
       products={$products.filter((p) => {
         return p.tags[0] == "hogar";
       })}
-      bind:activemodal={modalHogar}
+      bind:activeModal={modalHogar}
       {exchangeRateBCV}
     />
     <!-- huerto products -->
     <ModalProducts
-      bind:activemodal={modalHuerto}
+      bind:activeModal={modalHuerto}
       title="Plantas y semillas"
       products={$products.filter((p) => {
         return p.tags[0] == "huerto";
@@ -196,8 +196,8 @@
       {exchangeRateBCV}
     />
 
-    <ModalContent bind:activemodal={modalMore} HTMLcontent={modalMoreContent} />
-  </section>
+    <ModalContent bind:activeModal={modalMore} HTMLcontent={modalMoreContent} />
+  </div>
 
   <section
     class="columns is-mobile is-multiline section is-justify-content-center"
@@ -214,112 +214,47 @@
           <CardProductX {product} {exchangeRateBCV} />
         </div>
       {/each}
+    {:else if inputSearch.length > 2 && search_results.length < 1}
+      <article class="content">
+        <h2>No hay coinciencias para su busqueda.</h2>
+        <p>Contactenos para más información.</p>
+      </article>
     {:else}
-      <p>
-        Explora todos los productos y servicios que tenemos disponibles para ti
-        y no dudes en contactarnos si requieres más información.
-      </p>
-      <p>
-        Los precios publicados son al detal, para precios al mayor consultar
-        directamente.
-      </p>
-    {/if}
-  </section>
-
-  <section class="section">
-    <div class="columns is-multiline">
-      <!-- area destacados -->
-      <div class="column is-8 is-9-desktop">
-        <header>
-          <h1 class=" title">Nuestros productos</h1>
-          <h2 class="subtitle">Al mayor y detal.</h2>
-        </header>
-
-        <section class="section">
-          <div class="columns is-multiline">
-            <article class="column">
-              <DinamicProduct
-                listProducts={$products.filter(
-                  (p) => p.tags[0] == "hogar" || p.tags[0] == "huerto"
-                )}
-                interval_seg="5"
-              />
-            </article>
-            <article class="column">
-              <DinamicProduct
-                listProducts={$products.filter(
-                  (p) => p.tags[0] == "repuesto-car"
-                )}
-                interval_seg="4.5"
-              />
-            </article>
-          </div>
-        </section>
-        <h1 class="title">Productos destacados</h1>
-
-        <div class="columns is-multiline">
-          <div class="column is-half-tablet is-one-third-desktop">
-            <article class="block">
-              <Cardy
-                title="Resistencia Electrica"
-                img_src="img/destacados/rce-gatg.png"
-                description="Resistencia, hornilla de cocina electrica de 1000W 110v, tambien el termostato regulador."
-                tags={["mayor", "detal"]}
-              />
-            </article>
-          </div>
-          <div class="column is-half-tablet is-one-third-desktop">
-            <article class="block">
-              <Cardy
-                title="Bombillos LED"
-                img_src="img/destacados/bombillo.png"
-                description="Bombillos LED de excelente iluminacion y bajo consumo de 5, 9, 12, 15, 18, 21, 30, 40W. Y más, tambien recargables."
-                tags={["mayor", "detal"]}
-              />
-            </article>
-          </div>
-          <div class="column is-half-tablet is-one-third-desktop">
-            <article class="block">
-              <Cardy
-                title="Repuestos para licuadoras Oster"
-                img_src="img/destacados/kit-licuadora.png"
-                description="Kit de repuestos para licuadoras marca Oster, cuadrante, base, acople, vaso, cuchilla, entre otros."
-                tags={["mayor", "detal"]}
-              />
-            </article>
-          </div>
-        </div>
+      <div class="columns is-multiline">
+        <article class="column  is-half-tablet is-one-third-desktop">
+          <DinamicProduct
+            listProducts={$products.filter(
+              (p) => p.tags[0] == "hogar" || p.tags[0] == "huerto"
+            )}
+            interval_seg="5"
+          />
+          <Cardy
+            title="Suspiros Naybeth"
+            img_src="img/suspinay.jpg"
+            description="En Suspiros Naybeth encontraras los mejores suspiros y sabores que desees. Se realizan a tu gusto. No te los pierdas!"
+            link="https://www.instagram.com/suspirosnaybeth/"
+          />
+        </article>
+        <article class="column is-half-tablet is-one-third-desktop">
+          <DinamicProduct
+            listProducts={$products.filter((p) => p.tags[0] == "repuesto-car")}
+            interval_seg="4.5"
+          />
+          <Cardy
+            title="Seguro de R.C.V."
+            img_src="img/nrcv.jpg"
+            description="Adquiera su seguro de Responsabilidad Civil de Vehiculo (R.C.V.), un respaldo seguro válido para todo el territorio nacional."
+            link="https://wa.me/584247556983"
+          />
+        </article>
+        <article class="column is-half-tablet is-one-third-desktop">
+          <Cardy
+            title="Anuncio Servicio y productos"
+            description="Anuncie sus servicios o productos aquí."
+          />
+        </article>
       </div>
-
-      <!-- area servicios -->
-      <aside class="column  is-4 is-3-desktop">
-        <header>
-          <h1 class="title">Servicios locales</h1>
-        </header>
-        <div class="columns is-multiline is-mobile">
-          <div class="column">
-            <article class="block">
-              <Cardy
-                title="Suspiros y dulces"
-                img_src="img/destacados/suspinay.png"
-                description="Contacte al num que apacere en la imagen o en su IG:
-        <a href='https://www.instagram.com/suspirosnaybeth/'>
-          @suspirosnaybeth
-        </a>"
-              />
-            </article>
-          </div>
-          <div class="column">
-            <article class="block">
-              <Cardy
-                title="Anuncio Servicio y productos"
-                description="Anuncie sus servicios o productos aquí."
-              />
-            </article>
-          </div>
-        </div>
-      </aside>
-    </div>
+    {/if}
   </section>
 
   <Footer />
@@ -353,15 +288,5 @@
   .button:hover {
     background-color: black;
     color: yellow;
-  }
-
-  .section .content p {
-    padding: 1rem;
-    background-color: #7f9ddece;
-  }
-
-  .section header:first-child {
-    margin: 1rem;
-    padding: 0.5rem;
   }
 </style>

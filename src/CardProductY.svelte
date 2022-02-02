@@ -15,7 +15,7 @@
   </header>
   <div class="card-content">
     <p class="box num">
-      Precio: {product.price == 2021 ? "consultar" : product.price} COP
+      Precio: {product.price == 0 ? "Consultar" : product.price} COP
     </p>
   </div>
 </div>

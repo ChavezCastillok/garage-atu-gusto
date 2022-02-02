@@ -49,7 +49,9 @@
           1.16
         ).toFixed(2)}"
       >
-        $ <span class="num">{product.price}</span> COP*
+        $ <span class="num"
+          >{product.price == 0 ? "Consultar" : product.price}</span
+        > COP*
       </p>
       <span class="help is-info">*Precio por unidad.</span>
     </div>

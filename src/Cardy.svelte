@@ -2,6 +2,7 @@
   export let title = "Default product";
   export let img_src = "img/Garage a tu Gusto.png";
   export let description = "Default description";
+  export let link = "";
   export let tags = [];
 </script>
 
@@ -9,15 +10,17 @@
   <header class="card-header">
     <p class="card-header-title">{title}</p>
   </header>
-  <div class="card-image">
-    <figure class="image is-1by1">
-      <!-- svelte-ignore a11y-img-redundant-alt -->
-      <img src={img_src} alt="Placeholder image" />
-    </figure>
-  </div>
+  <a href={link} target="_blank">
+    <div class="card-image">
+      <figure class="image is-1by1">
+        <!-- svelte-ignore a11y-img-redundant-alt -->
+        <img src={img_src} alt="Placeholder image" />
+      </figure>
+    </div>
+  </a>
   <div class="card-content">
     <p>
-      {@html description}
+      {description}
     </p>
     <p>
       {#each tags as tag}
